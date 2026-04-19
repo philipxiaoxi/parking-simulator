@@ -108,4 +108,4 @@ npm run test
 
 ## 许可
 
-仅供内部训练与学习演示。
+[MIT License](LICENSE)
