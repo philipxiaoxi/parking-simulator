@@ -1,0 +1,20 @@
+{
+  "name": "parking-sim",
+  "version": "1.0.0",
+  "private": true,
+  "description": "停车训练驾驶模拟器 - Monorepo",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=@parking-sim/frontend",
+    "dev:server": "npm run dev --workspace=@parking-sim/server",
+    "build": "npm run build --workspace=@parking-sim/frontend",
+    "lint": "npm run lint --workspace=@parking-sim/frontend",
+    "test": "npm run test --workspace=@parking-sim/frontend",
+    "start": "npm run start --workspace=@parking-sim/server"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

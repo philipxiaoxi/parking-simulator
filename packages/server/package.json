@@ -1,0 +1,25 @@
+{
+  "name": "@parking-sim/server",
+  "version": "1.0.0",
+  "description": "停车模拟器后端服务",
+  "private": true,
+  "egg": {
+    "declarations": true
+  },
+  "scripts": {
+    "dev": "egg-bin dev",
+    "start": "egg-scripts start --daemon",
+    "stop": "egg-scripts stop"
+  },
+  "dependencies": {
+    "egg": "^3.17.0",
+    "egg-scripts": "^2.17.0",
+    "egg-sequelize": "^6.0.0",
+    "egg-cors": "^2.2.3",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "egg-bin": "^6.6.0",
+    "typescript": "^5.4.0"
+  }
+}
