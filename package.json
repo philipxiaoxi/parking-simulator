@@ -9,9 +9,10 @@
   "scripts": {
     "dev": "npm run dev --workspace=@parking-sim/frontend",
     "dev:server": "npm run dev --workspace=@parking-sim/server",
+    "dev:all": "npm run dev --workspace=@parking-sim/server & npm run dev --workspace=@parking-sim/frontend",
     "build": "npm run build --workspace=@parking-sim/frontend",
     "lint": "npm run lint --workspace=@parking-sim/frontend",
-    "test": "npm run test --workspace=@parking-sim/frontend",
+    "test": "vitest run --workspace=@parking-sim/frontend",
     "start": "npm run start --workspace=@parking-sim/server"
   },
   "engines": {
