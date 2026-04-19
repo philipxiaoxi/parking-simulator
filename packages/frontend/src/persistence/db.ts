@@ -1,4 +1,5 @@
 import { openDB, type IDBPDatabase } from "idb";
+import { useUiStore } from "../stores/uiStore";
 import type { MapData, MapIndexEntry } from "../types/map";
 
 const API_BASE = "http://localhost:7001/api";
@@ -6,14 +7,23 @@ const API_BASE = "http://localhost:7001/api";
 // ========== 后端 API ==========
 
 async function request<T>(path: string, options?: RequestInit): Promise<T> {
-  const res = await fetch(`${API_BASE}${path}`, {
-    headers: { "Content-Type": "application/json" },
-    ...options,
-  });
-  if (!res.ok) {
-    throw new Error(`API Error: ${res.status}`);
+  try {
+    const res = await fetch(`${API_BASE}${path}`, {
+      headers: { "Content-Type": "application/json" },
+      ...options,
+    });
+    if (!res.ok) {
+      const errorMsg = `请求失败: ${res.status} ${res.statusText}`;
+      useUiStore.getState().pushToast(errorMsg, "error");
+      throw new Error(`API Error: ${res.status}`);
+    }
+    return res.json();
+  } catch (e) {
+    if (e instanceof TypeError && e.message === "Failed to fetch") {
+      useUiStore.getState().pushToast("网络连接失败，请检查网络", "error");
+    }
+    throw e;
   }
-  return res.json();
 }
 
 export async function saveMap(map: MapData): Promise<void> {

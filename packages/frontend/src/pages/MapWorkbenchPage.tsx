@@ -10,7 +10,6 @@ import { ToolPalette } from "../components/ToolPalette";
 import { PropertyPanel } from "../components/PropertyPanel";
 import { HudBottom } from "../components/HudBottom";
 import { ResultBanner } from "../components/ResultBanner";
-import { Toasts } from "../components/Toasts";
 import { Workbench3D } from "../scene/Workbench3D";
 import { useKeyboardInput } from "../scene/useKeyboardInput";
 
@@ -112,7 +111,6 @@ export function MapWorkbenchPage() {
         )}
         <div className="scene-area">
           <Workbench3D />
-          <Toasts />
           <ResultBanner />
           <HudBottom onReset={handleReset} />
         </div>
