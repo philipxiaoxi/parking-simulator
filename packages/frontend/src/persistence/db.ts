@@ -2,7 +2,10 @@ import { openDB, type IDBPDatabase } from "idb";
 import { useUiStore } from "../stores/uiStore";
 import type { MapData, MapIndexEntry } from "../types/map";
 
-const API_BASE = "http://localhost:7001/api";
+// 开发环境使用完整地址，生产环境使用相对路径
+const API_BASE = import.meta.env.DEV
+  ? "http://localhost:7001/api"
+  : "/api";
 
 // ========== 后端 API ==========
 

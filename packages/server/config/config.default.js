@@ -16,3 +16,13 @@ exports.security = {
     enable: false,
   },
 };
+
+// 静态文件服务配置
+exports.static = {
+  prefix: '/',
+  dir: 'app/public',
+  // 使用 alias 让根路径返回 index.html
+  alias: {
+    '/': '/index.html',
+  },
+};
